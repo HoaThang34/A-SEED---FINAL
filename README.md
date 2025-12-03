@@ -145,4 +145,5 @@ A-SEED/
 
 -----
 
-**© 2024 A SEED Project.** Built with ❤️ and Code.
+**© 2025 A SEED Project.** Built with ❤️ and Code.
+
