@@ -1,15 +1,10 @@
-/* =========================================================
-   A SEED — VISUAL UPGRADE (GLASS & ORGANIC)
-   ========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Màu nền sâu hơn một chút để tạo độ tương phản cho hiệu ứng kính */
   --bg: #0b1121; --panel: rgba(30, 41, 59, 0.7); 
   --fg: #e2e8f0; --muted: #94a3b8;
   --border: rgba(148, 163, 184, 0.15); 
   --mood: #60a5fa; 
-  /* Shadow mềm mại hơn */
   --shadow: 0 20px 40px -10px rgba(0,0,0,0.6);
   --input-bg: rgba(15, 23, 42, 0.6); 
   --chip-bg: rgba(255, 255, 255, 0.05);
@@ -33,7 +28,6 @@
   --msg-ai-bg: rgba(255, 255, 255, 0.8); --msg-ai-fg: #334155;
 }
 
-/* --- Dynamic Moods --- */
 body.mood-sadness { --mood: #94a3b8; --msg-me-bg: #64748b; }
 :root.light body.mood-sadness { --mood: #64748b; }
 body.mood-joy { --mood: #22c55e; --msg-me-bg: #16a34a; }
@@ -56,16 +50,14 @@ body {
   font-size: 15px; line-height: 1.6; 
   display: flex; flex-direction: column; height: 100vh;
   transition: background-color 1s cubic-bezier(0.2, 0.8, 0.2, 1), color 1s ease;
-  /* Thêm gradient nhẹ nền để tạo chiều sâu */
   background-image: radial-gradient(circle at 50% 0%, rgba(var(--mood), 0.15), transparent 70%);
 }
 
-/* --- App Bar (Glass Effect) --- */
 .appbar {
   flex-shrink: 0; display:flex; justify-content:space-between; align-items:center;
   padding: 16px 32px; 
   border-bottom: 1px solid var(--border);
-  background: rgba(var(--bg), 0.01); /* Siêu trong suốt */
+  background: rgba(var(--bg), 0.01); 
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   position: relative; z-index: 10;
@@ -73,19 +65,18 @@ body {
 .brand { display:flex; align-items:center; gap:14px; }
 .logo { 
   font-size: 1.8rem; 
-  filter: drop-shadow(0 0 15px rgba(34, 197, 94, 0.4)); /* Logo phát sáng nhẹ */
+  filter: drop-shadow(0 0 15px rgba(34, 197, 94, 0.4)); 
 }
 .brand-title { font-weight: 700; font-size: 1.3rem; letter-spacing: -0.5px; }
 .brand-tagline { font-size: 0.85rem; color: var(--muted); font-weight: 500; opacity: 0.8; }
 
 .mobile-menu-btn { display: none; }
 
-/* --- Chips (Buttons) --- */
 .controls { display:flex; gap:12px; align-items:center; }
 .chip {
-  border:1px solid var(--border); padding: 8px 18px; border-radius: 99px; /* Bo tròn hoàn toàn */
+  border:1px solid var(--border); padding: 8px 18px; border-radius: 99px; 
   color:var(--muted); background:var(--chip-bg); cursor: pointer; 
-  transition: all .3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Hiệu ứng nảy */
+  transition: all .3s cubic-bezier(0.34, 1.56, 0.64, 1); 
   font-size: 0.85rem; font-weight: 600; white-space: nowrap;
   backdrop-filter: blur(5px);
 }
@@ -109,7 +100,6 @@ body {
 .dropdown-menu a { color: var(--fg); padding: 10px 16px; text-decoration: none; display: block; border-radius: 10px; font-size: 0.9rem; transition: background 0.2s; }
 .dropdown-menu a:hover { background-color: var(--chip-bg); }
 
-/* --- Chat Area --- */
 .chat-container { flex-grow: 1; width: 100%; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; overflow: hidden; position: relative; }
 .chat-area { flex-grow: 1; overflow-y: auto; padding: 40px; scroll-behavior: smooth; }
 
@@ -120,7 +110,7 @@ body {
   font-size: 1.6rem; flex-shrink: 0; width: 44px; height: 44px; 
   display: grid; place-items: center; 
   background: var(--chip-bg); border: 1px solid var(--border);
-  border-radius: 50%; /* Tròn xoe */
+  border-radius: 50%; 
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
@@ -141,27 +131,25 @@ body {
   background: var(--msg-ai-bg); 
   color: var(--msg-ai-fg); 
   border-bottom-left-radius: 4px;
-  backdrop-filter: blur(10px); /* Chat bubble cũng kính mờ */
+  backdrop-filter: blur(10px); 
   border: 1px solid var(--border);
 }
 
 .emotion-tag {
   font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
   padding: 4px 12px; border-radius: 99px;
-  background: rgba(var(--mood), 0.1); /* Màu nền nhạt theo mood */
+  background: rgba(var(--mood), 0.1); 
   border: 1px solid rgba(var(--mood), 0.2);
   color: var(--muted);
 }
 
-/* --- Composer (Floating Capsule) --- */
 .composer-area { 
   flex-shrink: 0; padding: 20px 32px 40px 32px; 
-  /* Gradient fade out phía dưới */
   background: linear-gradient(to top, var(--bg) 20%, transparent); 
-  width: 100%; max-width: 1000px; margin: 0 auto; pointer-events: none; /* Để click xuyên qua vùng trống */
+  width: 100%; max-width: 1000px; margin: 0 auto; pointer-events: none; 
 }
 .composer { 
-  pointer-events: auto; /* Click lại được vào ô nhập */
+  pointer-events: auto; 
   position: relative; width: 100%; 
   background: var(--panel); 
   backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
@@ -173,7 +161,7 @@ body {
 }
 .composer:focus-within { 
   border-color: var(--mood); 
-  box-shadow: 0 20px 50px -10px rgba(var(--mood), 0.15); /* Glow nhẹ khi gõ */
+  box-shadow: 0 20px 50px -10px rgba(var(--mood), 0.15); 
   transform: translateY(-2px);
 }
 .composer textarea { 
@@ -198,7 +186,6 @@ body {
 
 @keyframes pulseRed { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); } 70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
 
-/* --- Modals --- */
 .modal { display: none; position: fixed; inset: 0; z-index: 1000; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px); padding: 20px; transition: opacity 0.3s; }
 .modal.show { display: flex; animation: fadeInModal 0.3s ease-out; }
 @keyframes fadeInModal { from { opacity: 0; } to { opacity: 1; } }
@@ -219,7 +206,6 @@ body {
 .btn.primary { background:var(--mood); color:#fff; border-color: var(--mood); box-shadow: 0 8px 25px -5px rgba(var(--mood), 0.5); }
 .btn:hover { transform: translateY(-3px) scale(1.02); }
 
-/* --- History List --- */
 .histbar { display:flex; justify-content:space-between; align-items: center; gap:12px; margin-bottom:24px; }
 .histbar input { flex:1; padding:14px; border-radius:14px; border:2px solid var(--border); background:var(--input-bg); color:var(--fg); font-size: 1rem; transition: border 0.3s; }
 .histbar input:focus { border-color: var(--mood); outline: none; }
@@ -236,7 +222,6 @@ body {
 
 .watermark { text-align: center; font-size: 0.8rem; opacity:.5; color:var(--muted); margin-bottom: 16px; letter-spacing: 0.5px; }
 
-/* Mobile */
 @media (max-width: 768px) {
   body { font-size: 14px; }
   .appbar { padding: 12px 20px; }

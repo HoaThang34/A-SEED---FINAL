@@ -1,9 +1,3 @@
-/* =========================================================
-   A SEED — MOTION UPGRADE (ORGANIC FEEL)
-   ========================================================= */
-
-/* 1. Reveal (Hiệu ứng mầm cây mọc) */
-/* Khi tin nhắn mới xuất hiện, nó sẽ trượt lên nhẹ và phình ra một chút */
 .fx-reveal {
   opacity: 0;
   transform: translateY(30px) scale(0.95);
@@ -18,7 +12,6 @@
   transform: translateY(0) scale(1);
 }
 
-/* 2. Pulse (Nút bấm) - Nhịp tim chậm */
 .fx-pulse {
   animation: organicPulse 3s infinite ease-in-out;
 }
@@ -27,15 +20,14 @@
   50% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(var(--mood), 0); }
 }
 
-/* 3. Mood Orb (Quả cầu cảm xúc nền) - Trôi bồng bềnh */
 .mood-orb-container {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
   pointer-events: none;
   z-index: -1;
   overflow: hidden;
-  opacity: 0.5; /* Mờ đi để không rối mắt */
-  filter: blur(80px); /* Blur cực mạnh để tạo nền loang màu */
+  opacity: 0.5;
+  filter: blur(80px);
 }
 
 .mood-orb {
@@ -45,17 +37,15 @@
   background: radial-gradient(circle, var(--mood) 0%, transparent 70%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  /* Animation phức tạp hơn: di chuyển, đổi kích thước, xoay nhẹ */
   animation: orbFloat 20s infinite ease-in-out;
-  mix-blend-mode: screen; /* Giúp màu hòa trộn đẹp hơn trên nền tối */
+  mix-blend-mode: screen;
 }
 
 :root.light .mood-orb {
-  mix-blend-mode: multiply; /* Hòa trộn kiểu khác cho nền sáng */
+  mix-blend-mode: multiply;
   opacity: 0.15;
 }
 
-/* Orb trôi tự do */
 @keyframes orbFloat {
   0% {
     transform: translate(-50%, -50%) scale(1) rotate(0deg);
@@ -71,7 +61,6 @@
   }
 }
 
-/* 4. Typing Dots (Dấu ba chấm đang gõ) - Dạng sóng */
 .msg.ai.dots {
   display: flex;
   align-items: center;

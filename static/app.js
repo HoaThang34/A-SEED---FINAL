@@ -17,7 +17,7 @@
 
   const newChatBtn = $("#newChatBtn");
   const musicBtn = $("#musicBtn");
-  const ttsBtn = $("#ttsBtn"); // Nút Voice
+  const ttsBtn = $("#ttsBtn"); 
 
   const historyBtn = $("#historyBtn");
   const histModal = $("#histModal");
@@ -58,11 +58,9 @@
   let emotionChartInstance = null;
   let abortController = null;
   
-  // Logic Music
   let isMusicPlaying = true;
   if (ambientAudio) ambientAudio.volume = 0.4;
 
-  // Logic TTS (Mặc định tắt)
   let isTTSActive = false;
 
   function setMood(mood) {
@@ -114,7 +112,6 @@
 
   function playTTS(text) {
     if (!isTTSActive) return;
-    // Bỏ qua các ký tự markdown cơ bản để đọc mượt hơn
     const cleanText = text.replace(/[*#_`]/g, '');
     
     fetch("/api/tts", {
@@ -160,7 +157,6 @@
         autoscroll();
         resetInputState();
         
-        // Kích hoạt đọc giọng nói khi đã gõ xong
         playTTS(text);
       }
     };
@@ -261,7 +257,6 @@
   inp.addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } });
   inp.addEventListener('input', () => { inp.style.height = 'auto'; inp.style.height = (inp.scrollHeight) + 'px'; });
 
-  // --- Voice Input Logic ---
   if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
@@ -290,7 +285,6 @@
     micBtn.style.display = 'none';
   }
 
-  // --- Controls Logic ---
   newChatBtn.onclick = () => {
     if (confirm("Are you sure you want to start a new chat?")) {
       logs = []; sessionEmotions = []; chat.innerHTML = "";
@@ -359,7 +353,6 @@
     });
   }
 
-  // --- Music & TTS Controls UI ---
   function updateMusicButton() {
     if (musicBtn && ambientAudio) {
       if (isMusicPlaying) {
