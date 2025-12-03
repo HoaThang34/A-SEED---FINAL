@@ -1,0 +1,8 @@
+Flask
+requests
+psutil
+pynvml
+Werkzeug
+waitress
+numpy
+edge-tts

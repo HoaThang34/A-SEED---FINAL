@@ -1,0 +1,98 @@
+/* =========================================================
+   A SEED — MOTION UPGRADE (ORGANIC FEEL)
+   ========================================================= */
+
+/* 1. Reveal (Hiệu ứng mầm cây mọc) */
+/* Khi tin nhắn mới xuất hiện, nó sẽ trượt lên nhẹ và phình ra một chút */
+.fx-reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: 
+    opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), 
+    transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: opacity, transform;
+}
+
+.fx-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 2. Pulse (Nút bấm) - Nhịp tim chậm */
+.fx-pulse {
+  animation: organicPulse 3s infinite ease-in-out;
+}
+@keyframes organicPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(var(--mood), 0.4); }
+  50% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(var(--mood), 0); }
+}
+
+/* 3. Mood Orb (Quả cầu cảm xúc nền) - Trôi bồng bềnh */
+.mood-orb-container {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0.5; /* Mờ đi để không rối mắt */
+  filter: blur(80px); /* Blur cực mạnh để tạo nền loang màu */
+}
+
+.mood-orb {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, var(--mood) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  /* Animation phức tạp hơn: di chuyển, đổi kích thước, xoay nhẹ */
+  animation: orbFloat 20s infinite ease-in-out;
+  mix-blend-mode: screen; /* Giúp màu hòa trộn đẹp hơn trên nền tối */
+}
+
+:root.light .mood-orb {
+  mix-blend-mode: multiply; /* Hòa trộn kiểu khác cho nền sáng */
+  opacity: 0.15;
+}
+
+/* Orb trôi tự do */
+@keyframes orbFloat {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(-40%, -60%) scale(1.2) rotate(120deg);
+  }
+  66% {
+    transform: translate(-60%, -40%) scale(0.9) rotate(240deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1) rotate(360deg);
+  }
+}
+
+/* 4. Typing Dots (Dấu ba chấm đang gõ) - Dạng sóng */
+.msg.ai.dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 24px;
+  height: 48px;
+}
+
+.msg.ai.dots i {
+  width: 6px; height: 6px;
+  background: var(--fg);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: wave 1.4s infinite ease-in-out both;
+}
+
+.msg.ai.dots i:nth-child(1) { animation-delay: -0.32s; }
+.msg.ai.dots i:nth-child(2) { animation-delay: -0.16s; }
+.msg.ai.dots i:nth-child(3) { animation-delay: 0s; }
+
+@keyframes wave {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}

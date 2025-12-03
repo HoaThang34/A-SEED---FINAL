@@ -1,0 +1,5 @@
+pip install -r requirements.txt
+ollama pull gpt-oss:120b-cloud
+ollama pull nomic-embed-text
+ollama signin
+python main_server.py	
