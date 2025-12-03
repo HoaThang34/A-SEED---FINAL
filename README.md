@@ -1,94 +1,148 @@
-# A SEED — Cultivate peace of mind
+# 🌱 A SEED — Cultivate Peace of Mind
 
-**Project by:** Students from Nguyen Tat Thanh High School for the Gifted – Lao Cai Province  
-**Message:** Nurturing positive seeds for yourself.
+**Dự án bởi:** Nhóm học sinh Trường THPT Chuyên Nguyễn Tất Thành - Tỉnh Lào Cai
+**Thông điệp:** Gieo mầm tích cực cho tâm hồn.
 
----
+-----
 
-## 🇬🇧 OVERVIEW
-**A SEED** is an empathetic AI chatbot designed to be a safe and private space for you to explore and understand your feelings. Our goal is to offer personalized, soothing conversations that adapt to you over time, acting as a supportive digital companion.
+## 📖 Giới thiệu (Overview)
 
-> ⚠️ **Disclaimer:** A SEED is a supportive companion, **not a substitute for professional mental-health care**. If you are in crisis, please contact local emergency services immediately.
+**A SEED** không chỉ là một chatbot AI, mà là một người bạn đồng hành thấu cảm, được thiết kế để tạo ra một không gian an toàn và riêng tư cho người dùng chia sẻ cảm xúc. Hệ thống sử dụng các mô hình ngôn ngữ lớn (LLM) kết hợp với kỹ thuật RAG (Retrieval-Augmented Generation) để ghi nhớ và thấu hiểu người dùng theo thời gian.
 
-### Key Features
-- **Truly Personal & Adaptive AI**: The AI learns from your chat to provide relevant responses. The default model is `gpt-oss:120b-cloud`, enabling deep and empathetic conversations.
-- **Accessible & Private**: Use our online version for instant access, or install the source code on your own machine for absolute privacy.
-- **Dynamic & Soothing UI**: A clean, modern interface with a "Mood Orb" and color theme that dynamically changes based on the conversation's emotion. Includes Dark/Light modes.
-- **Mood Statistics**: Track your emotional journey within a session with a beautiful chart, helping you gain insights into your feelings.
+Dự án tích hợp các liệu pháp tâm lý (CBT, Stoicism, Mindfulness) vào trong lời thoại của AI, giúp người dùng tự gỡ rối tơ lòng thay vì chỉ nhận lời khuyên sáo rỗng.
 
----
+-----
 
-## 🚀 HOW TO ACCESS & USE
+## ✨ Tính năng nổi bật (Key Features)
 
-There are two ways to experience A SEED:
+### 🧠 Trí tuệ nhân tạo & Tâm lý học
 
-### Option 1: Online Access (Recommended)
-This is the recommended method for most users. No installation is required.
+  * **Empathetic AI Persona:** AI được huấn luyện sâu với tính cách "Người làm vườn" (The Gardener), sử dụng ẩn dụ và câu hỏi gợi mở để chữa lành.
+  * **Long-term Memory (RAG):** Hệ thống ghi nhớ các cuộc trò chuyện cũ để hiểu ngữ cảnh dài hạn của người dùng (sử dụng vector embedding).
+  * **Psychological Trend Analysis:** Tự động phân tích xu hướng cảm xúc của người dùng trong 5 ngày gần nhất để phát hiện dấu hiệu lo âu/trầm cảm kéo dài và đưa ra can thiệp phù hợp.
 
-**Simply open your browser and navigate to: [http://aseed.ddns.net/](http://aseed.ddns.net/)**
+### 🎨 Giao diện & Trải nghiệm (UI/UX)
 
-*(After accessing the link, please refer to the "App Usage Guide" section below.)*
+  * **Dynamic Mood System:** Giao diện và màu sắc thay đổi theo thời gian thực dựa trên cảm xúc của cuộc trò chuyện (Vui, Buồn, Giận, Sợ hãi...).
+  * **Mood Orb:** Quả cầu cảm xúc chuyển động tự nhiên tạo cảm giác êm dịu.
+  * **Dark/Light Mode:** Chế độ Sáng/Tối linh hoạt.
+  * **Voice & Sound:**
+      * 🎵 Nhạc nền du dương (Ambient Music).
+      * 🗣️ Text-to-Speech (TTS): AI có thể đọc phản hồi bằng giọng nói tự nhiên (hỗ trợ Tiếng Việt & Tiếng Anh).
 
-### Option 2: Install from Source Code (For Developers)
-This method is for users who wish to run the application on their own computer for absolute privacy or to customize the source code. If you choose this path, follow the detailed installation guide below.
+### 🛠️ Hệ thống & Quản trị
 
----
+  * **User System:** Đăng ký, Đăng nhập, Quản lý phiên chat (Session).
+  * **Mood Statistics:** Biểu đồ thống kê cảm xúc giúp người dùng theo dõi sức khỏe tinh thần.
+  * **Admin Dashboard:** Theo dõi hiệu năng hệ thống (CPU, RAM, GPU), trạng thái AI Model và quản lý server.
 
-## 📋 LOCAL INSTALLATION GUIDE
+-----
 
-This section provides documentation for installing, configuring dependencies, and building the source code.
+## ⚙️ Yêu cầu hệ thống (Prerequisites)
 
-### 1. Prerequisites
-Before you begin, ensure you have the following installed:
-1.  **Python**: Version 3.10 or newer. Download from [python.org](https://python.org). **Important:** During installation, check the box that says "Add Python to PATH".
-2.  **Ollama**: Download and install from [ollama.com](https://ollama.com). After installing, run the Ollama application once to start its background service.
+Để chạy dự án, máy tính cần cài đặt:
 
-### 2. Installation Steps
+1.  **Python 3.10+**: [Tải tại python.org](https://www.python.org/) (Nhớ tích chọn "Add Python to PATH").
+2.  **Ollama**: [Tải tại ollama.com](https://ollama.com/) (Dùng để chạy AI Model offline).
+3.  **RAM**: Khuyến nghị 8GB trở lên (16GB nếu dùng model lớn).
+4.  **GPU (Tuỳ chọn)**: Để AI phản hồi nhanh hơn.
 
-**Step 1: Get the Source Code**
-- Download and extract the project's source code into a folder on your computer.
+-----
 
-**Step 2: Install Python Dependencies**
-- Open a terminal (Command Prompt, PowerShell, or Terminal) and navigate to the root directory of the project you just extracted.
-- Run the following command to install all required libraries:
-  ```bash
-  pip install -r requirements.txt
-  ```
+## 🚀 Hướng dẫn cài đặt (Installation Guide)
 
-**Step 3: Download the AI Model via Ollama**
-- Make sure the Ollama application is running in the background.
-- Open your terminal and run the following command to download the `gpt-oss:120b-cloud` model:
-  ```bash
-  ollama pull gpt-oss:120b-cloud
-  ```
-- **Note:** This is the default model configured in `main_server.py`. If you wish to use a different model, you must download it and change the `MODEL_NAME` variable in the `main_server.py` file.
+### Bước 1: Chuẩn bị mã nguồn
 
-**Step 4: Start the Server**
-- After completing the steps above, run the following command in the terminal from the project's root directory:
-  ```bash
-  python main_server.py
-  ```
-- The server will start. Open your web browser and navigate to `http://127.0.0.1:8000` to use the application.
+Tải và giải nén thư mục dự án `A-SEED---FINAL`.
 
----
+### Bước 2: Cài đặt thư viện Python
 
-## 💡 APP USAGE GUIDE
+Mở Terminal (hoặc CMD/PowerShell) tại thư mục dự án và chạy lệnh:
 
-This guide applies to both the online version and the locally installed version.
+```bash
+pip install -r requirements.txt
+```
 
-#### 1. Registration and Login
-- **Create an Account:** On your first visit, you will need to create an account. Click on the **"Register"** tab, then enter your Display Name, a Username, and a Password.
-- **Login:** After successfully creating an account, switch to the **"Login"** tab to sign in to the application.
+### Bước 3: Cài đặt AI Model (Thông qua Ollama)
 
-#### 2. Starting a Conversation
-- Once logged in, a welcome screen will appear. Click the **"Start"** button to enter the main chat interface.
-- The AI will send a greeting message. You can reply to begin sharing your thoughts.
+Mở Terminal và chạy các lệnh sau để tải model về máy (cần kết nối mạng):
 
-#### 3. Exploring the Main Features
-- **➕ New Chat**: Start a completely new conversation.
-- **History**: Review all of your past conversations.
-- **📊 Mood Stats**: View a chart that visualizes the emotions detected by the AI during your current session.
-- **🌙 Dark Mode / ☀️ Light Mode**: Switch between dark and light themes to suit your preference.
-- **Logout**: Sign out of your account.
+1.  Tải model ngôn ngữ chính:
 
+    ```bash
+    ollama pull gpt-oss:120b-cloud
+    ```
 
+    *(Lưu ý: Nếu máy yếu, bạn có thể thay bằng model nhẹ hơn như `gemma:2b` hoặc `qwen:4b` trong file `main.py`)*
+
+2.  Tải model xử lý bộ nhớ (Embedding):
+
+    ```bash
+    ollama pull nomic-embed-text
+    ```
+
+### Bước 4: Khởi chạy Server
+
+Tại thư mục dự án, chạy lệnh:
+
+```bash
+python main.py
+```
+
+*(Hoặc `python main_server.py` nếu muốn chạy phiên bản tối giản không có TTS).*
+
+Khi thấy dòng chữ `Server is live...`, hãy mở trình duyệt và truy cập:
+👉 **[http://127.0.0.1:8000](http://127.0.0.1:8000)**
+
+-----
+
+## 💡 Hướng dẫn sử dụng
+
+### 1\. Người dùng (User)
+
+  * **Đăng ký/Đăng nhập:** Tạo tài khoản để lưu trữ lịch sử chat riêng tư.
+  * **Trò chuyện:** Nhập tin nhắn hoặc dùng Micro 🎙️ để nói chuyện.
+  * **Công cụ:**
+      * `🔊 Music On/Off`: Bật tắt nhạc nền.
+      * `🗣️ Voice On/Off`: Bật tắt tính năng AI đọc tin nhắn.
+      * `📊 Mood Stats`: Xem biểu đồ cảm xúc phiên hiện tại.
+      * `History`: Xem lại các đoạn chat cũ.
+
+### 2\. Quản trị viên (Admin)
+
+Truy cập vào đường dẫn: **[http://127.0.0.1:8000/admin](https://www.google.com/search?q=http://127.0.0.1:8000/admin)**
+
+  * **Tài khoản mặc định:**
+      * Username: `admin`
+      * Password: `admin123`
+  * **Chức năng:** Xem uptime, tài nguyên hệ thống (CPU/RAM/GPU), trạng thái kết nối Ollama và khởi động lại server.
+
+-----
+
+## 📂 Cấu trúc thư mục
+
+```text
+A-SEED/
+├── data/               # Chứa dữ liệu người dùng, lịch sử chat, bộ nhớ vector
+├── static/             # CSS, JS, hình ảnh, âm thanh
+│   ├── style.css       # Giao diện chính (Glassmorphism)
+│   ├── motion.css      # Hiệu ứng chuyển động
+│   ├── app.js          # Logic Frontend
+│   └── ...
+├── templates/          # Các file HTML (Login, Chat, Admin)
+├── training/           # Dữ liệu huấn luyện tính cách AI (System Prompt)
+├── main.py             # Server chính (Full tính năng: TTS, RAG, Trends)
+├── main_server.py      # Server phiên bản clean code
+├── requirements.txt    # Danh sách thư viện
+└── README.md           # Hướng dẫn sử dụng
+```
+
+-----
+
+## ⚠️ Tuyên bố miễn trừ trách nhiệm (Disclaimer)
+
+**A SEED** là một người bạn đồng hành hỗ trợ cảm xúc, **không phải là sự thay thế cho các dịch vụ chăm sóc sức khỏe tâm thần chuyên nghiệp**. Nếu bạn đang trong tình trạng khủng hoảng hoặc có ý định làm hại bản thân, vui lòng liên hệ ngay với các dịch vụ khẩn cấp tại địa phương hoặc người thân.
+
+-----
+
+**© 2024 A SEED Project.** Built with ❤️ and Code.
